@@ -1,6 +1,7 @@
 package de.macbrayne.fabric.enforcegamemode;
 
 import com.google.common.collect.ImmutableBiMap;
+import de.macbrayne.fabric.enforcegamemode.mixin.WorldAccessor;
 import me.lucko.fabric.api.permissions.v0.Permissions;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Identifier;
@@ -12,7 +13,7 @@ import java.util.TreeMap;
 
 public final class GameModePermission {
 	public static final String permissionRoot = "enforcegamemode";
-	public final String BYPASS = permissionRoot + ".bypass";
+	public static final String BYPASS = permissionRoot + ".bypass";
 	public static final Map<GameMode, GameModePermission> PERMISSIONS;
 
 	static {
@@ -27,7 +28,7 @@ public final class GameModePermission {
 
 	private final String permission;
 
-	public GameModePermission(final GameMode gameMode) {
+	private GameModePermission(final GameMode gameMode) {
 		permission = permissionRoot + ".force." + gameMode.getName().toLowerCase();
 	}
 
@@ -39,7 +40,22 @@ public final class GameModePermission {
 		return getPermission() + "." + dimensionType.toString();
 	}
 
-	public boolean check(final Entity entity, final Identifier dimensionType) {
-		return (Permissions.check(entity, getPermission()) || Permissions.check(entity, getPermission(dimensionType)))  && !Permissions.check(entity, BYPASS);
+	public static GameMode getGameModeOrNull(Entity entity) {
+		if(Permissions.check(entity, BYPASS)) {
+			return null;
+		}
+		WorldAccessor worldAccessor = (WorldAccessor) entity.getWorld();
+		for(Map.Entry<GameMode, GameModePermission> permission : PERMISSIONS.entrySet()) {
+			if(Permissions.check(entity, permission.getValue().getPermission(worldAccessor.getRegistryKey().getValue()))) {
+				return permission.getKey();
+			}
+		}
+		for(Map.Entry<GameMode, GameModePermission> permission : PERMISSIONS.entrySet()) {
+			if(Permissions.check(entity, permission.getValue().getPermission())) {
+				return permission.getKey();
+			}
+		}
+
+		return null;
 	}
 }
