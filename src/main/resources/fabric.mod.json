@@ -18,7 +18,7 @@
     ]
   },
   "mixins": [
-    "ForceGamemode.mixins.json"
+    "forcegamemode.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.12.12",
