@@ -36,7 +36,7 @@ public final class GameModePermission {
 	}
 
 	private String getPermission(final Identifier dimensionType) {
-		return getPermission() + "." + dimensionType.toUnderscoreSeparatedString();
+		return getPermission() + "." + dimensionType.toString();
 	}
 
 	public boolean check(final Entity entity, final Identifier dimensionType) {
