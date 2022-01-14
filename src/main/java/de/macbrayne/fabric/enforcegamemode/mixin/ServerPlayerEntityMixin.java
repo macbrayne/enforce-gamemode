@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ServerPlayerEntity.class)
 public abstract class ServerPlayerEntityMixin {
 	@Unique
-	private static final Logger LOGGER = LoggerFactory.getLogger("EnforceGamemode");
+	private static final Logger LOGGER = LoggerFactory.getLogger(ServerPlayerEntityMixin.class);
 
 	@Unique
 	@Inject(method = "playerTick", at = @At("HEAD"))
