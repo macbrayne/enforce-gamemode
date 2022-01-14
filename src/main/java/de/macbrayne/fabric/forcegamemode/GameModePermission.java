@@ -27,15 +27,19 @@ public final class GameModePermission {
 
 	private final String permission;
 
-	public GameModePermission(GameMode gameMode) {
+	public GameModePermission(final GameMode gameMode) {
 		permission = permissionRoot + ".force." + gameMode.getName().toLowerCase();
 	}
 
-	public String getPermission() {
+	private String getPermission() {
 		return permission;
 	}
 
-	public boolean check(Entity entity, Identifier dimensionType) {
-		return (Permissions.check(entity, getPermission()) || Permissions.check(entity, getPermission() + "." + dimensionType.toUnderscoreSeparatedString()))  && !Permissions.check(entity, BYPASS);
+	private String getPermission(final Identifier dimensionType) {
+		return getPermission() + "." + dimensionType.toUnderscoreSeparatedString();
+	}
+
+	public boolean check(final Entity entity, final Identifier dimensionType) {
+		return (Permissions.check(entity, getPermission()) || Permissions.check(entity, getPermission(dimensionType)))  && !Permissions.check(entity, BYPASS);
 	}
 }
