@@ -1,4 +1,4 @@
-package de.macbrayne.fabric.forcegamemode;
+package de.macbrayne.fabric.enforcegamemode;
 
 import com.google.common.collect.ImmutableBiMap;
 import me.lucko.fabric.api.permissions.v0.Permissions;

@@ -1,4 +1,4 @@
-package de.macbrayne.fabric.forcegamemode.mixin;
+package de.macbrayne.fabric.enforcegamemode.mixin;
 
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.World;

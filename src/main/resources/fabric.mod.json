@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "id": "force-gamemode",
+  "id": "enforce-gamemode",
   "version": "${version}",
-  "name": "ForceGamemode",
+  "name": "EnforceGamemode",
   "description": "Enables server owners to force gamemodes using permissions",
   "authors": [
     "macbrayne"
   ],
   "contact": {
-    "repo": "https://github.com/macbrayne/force-gamemode"
+    "repo": "https://github.com/macbrayne/enforce-gamemode"
   },
   "license": "MIT",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "de.macbrayne.fabric.forcegamemode.ForceGamemode"
+      "de.macbrayne.fabric.enforcegamemode.EnforceGamemode"
     ]
   },
   "mixins": [
