@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "force-gamemode",
+  "version": "${version}",
+  "name": "ForceGamemode",
+  "description": "Enables server owners to force gamemodes using permissions",
+  "authors": [
+    "macbrayne"
+  ],
+  "contact": {
+    "repo": "https://github.com/macbrayne/force-gamemode"
+  },
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "de.macbrayne.fabric.forcegamemode.ForceGamemode"
+    ]
+  },
+  "mixins": [
+    "ForceGamemode.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.12.12",
+    "minecraft": "1.18.1"
+  }
+}
