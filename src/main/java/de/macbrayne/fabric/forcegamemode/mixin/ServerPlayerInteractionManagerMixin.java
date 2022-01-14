@@ -25,7 +25,7 @@ public class ServerPlayerInteractionManagerMixin {
 
 	@Inject(method = "setGameMode", at = @At("HEAD"), cancellable = true)
 	private void forceGamemode$setGameMode(GameMode gameMode, GameMode previousGameMode, CallbackInfo ci) {
-		if (GameModePermission.PERMISSIONS.get(gameMode).check(player)) {
+		if (GameModePermission.PERMISSIONS.get(gameMode).check(player, ((WorldAccessor) player.getWorld()).getRegistryKey().getValue())) {
 			ci.cancel();
 			LOGGER.info("Stopped {} from changing game mode from {} to {} due to {}", player.getName().asString(),
 					previousGameMode.getName(), gameMode.getName(), GameModePermission.PERMISSIONS.get(gameMode).getPermission());
