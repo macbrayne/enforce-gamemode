@@ -28,8 +28,8 @@ they'll be put into survival mode.
 - ``enforcegamemode.force.adventure``: Enforce game mode adventure (id 2)
 - ``enforcegamemode.force.spectator``: Enforce game mode spectator (id 3)
 
-You can also set dimension specific game mode enforcements by adding ``.namespace:dimension`` to the permissons.
-Note that these do _not_ overwrite the order above.
+You can also set dimension specific game mode enforcements by adding ``.namespace:dimension`` to the permissions.
+These get checked first, so they'll overwrite global game mode permissions.
 
 Example: if you wanted to enforce adventure mode in the end the syntax would be:
 ``enforcegamemode.force.adventure.minecraft:the_end``
