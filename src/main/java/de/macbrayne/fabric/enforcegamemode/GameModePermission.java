@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public final class GameModePermission {
-	public static final String permissionRoot = "forcegamemode";
+	public static final String permissionRoot = "enforcegamemode";
 	public final String BYPASS = permissionRoot + ".bypass";
 	public static final Map<GameMode, GameModePermission> PERMISSIONS;
 
