@@ -3,7 +3,7 @@
   "id": "enforce-gamemode",
   "version": "${version}",
   "name": "EnforceGamemode",
-  "description": "Enables server owners to force gamemodes using permissions",
+  "description": "Enables server owners to enforce your players' game mode using permissions.",
   "authors": [
     "macbrayne"
   ],
@@ -11,17 +11,15 @@
     "repo": "https://github.com/macbrayne/enforce-gamemode"
   },
   "license": "MIT",
-  "environment": "*",
-  "entrypoints": {
-    "main": [
-      "de.macbrayne.fabric.enforcegamemode.EnforceGamemode"
-    ]
-  },
+  "environment": "server",
   "mixins": [
     "forcegamemode.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.12.12",
     "minecraft": "1.18.1"
+  },
+  "recommends": {
+    "luckperms": ">=5.3.86"
   }
 }
