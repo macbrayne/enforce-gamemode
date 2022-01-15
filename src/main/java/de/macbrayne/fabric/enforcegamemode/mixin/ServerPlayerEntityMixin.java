@@ -24,7 +24,7 @@ public abstract class ServerPlayerEntityMixin {
 		GameMode gameMode = GameModePermission.getGameModeOrNull(player);
 		if (gameMode != null) {
 			if(player.changeGameMode(gameMode)) {
-				LOGGER.error("Updated {}'s game mode to {}", player.getName().asString(), gameMode.getName());
+				LOGGER.debug("Updated {}'s game mode to {}", player.getName().asString(), gameMode.getName());
 			}
 		}
 	}
