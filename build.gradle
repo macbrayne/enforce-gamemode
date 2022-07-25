@@ -31,7 +31,7 @@ dependencies {
     include("me.lucko:fabric-permissions-api:${project.permissions_api_version}")
 
     // DataBreaker to speed up client startup
-    modRuntimeOnly ("supercoder79:databreaker:0.2.8") {
+    modRuntimeOnly ("supercoder79:databreaker:0.2.10") {
         exclude module: "fabric-loader"
     }
 }
